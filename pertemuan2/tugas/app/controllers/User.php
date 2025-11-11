@@ -1,11 +1,7 @@
 <?php
-/**
- * Controller User
- * Mengatur tampilan daftar user dan detail user
- */
+
 class User extends Controller
 {
-    // Method utama, routing berdasarkan parameter id
     public function index()
     {
         $data["judul"] = "Daftar Pengguna (User)";
@@ -15,7 +11,6 @@ class User extends Controller
         $this->view('templates/footer');
     }
 
-    // Tampilkan detail user berdasarkan id
     public function detail($id)
     {
         $data["judul"] = "Detail user";
@@ -25,7 +20,6 @@ class User extends Controller
         $this->view('templates/footer');
     }
 
-    // tampilkan form tambah
     public function tambah()
     {
         $data['judul'] = 'Tambah User';
@@ -34,7 +28,6 @@ class User extends Controller
         $this->view('templates/footer');
     }
 
-    // proses tambah (handle POST)
     public function prosesTambah()
     {
         if ($this->model('User_model')->tambahDataUser($_POST) > 0) {
@@ -46,7 +39,6 @@ class User extends Controller
         exit;
     }
 
-    // tampilkan form edit
     public function edit($id)
     {
         $data['user'] = $this->model('User_model')->getUserById($id);
@@ -56,7 +48,6 @@ class User extends Controller
         $this->view('templates/footer');
     }
 
-    // proses edit
     public function prosesEdit()
     {
         if ($this->model('User_model')->editDataUser($_POST) > 0) {
@@ -68,7 +59,6 @@ class User extends Controller
         exit;
     }
 
-    // hapus
     public function hapus($id)
     {
         if ($this->model('User_model')->hapusDataUser($id) > 0) {
@@ -79,4 +69,5 @@ class User extends Controller
         header('Location: ' . BASEURL . '/user');
         exit;
     }
+
 }
