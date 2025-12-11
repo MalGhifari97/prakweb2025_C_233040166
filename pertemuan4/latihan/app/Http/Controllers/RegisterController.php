@@ -19,7 +19,6 @@ class RegisterController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
-            'username' => 'required|string|max:50|unique:users,username',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|string|min:6|confirmed',
         ]);
@@ -30,12 +29,10 @@ class RegisterController extends Controller
 
         $user = User::create([
             'name' => $request->name,
-            'username' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
 
-        Auth::login($user);
-        return redirect('/posts');
+        return redirect('/login')->with('success', 'Register berhasil! Silakan login dengan akun Anda.');
     }
 }

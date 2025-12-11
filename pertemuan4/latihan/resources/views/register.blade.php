@@ -20,10 +20,6 @@
             <input type="text" name="name" value="{{ old('name') }}" required class="w-full rounded border px-3 py-2 text-black" />
         </div>
         <div>
-            <label class="block text-sm">Username</label>
-            <input type="text" name="username" value="{{ old('username') }}" required class="w-full rounded border px-3 py-2 text-black" />
-        </div>
-        <div>
             <label class="block text-sm">Email</label>
             <input type="email" name="email" value="{{ old('email') }}" required class="w-full rounded border px-3 py-2 text-black" />
         </div>

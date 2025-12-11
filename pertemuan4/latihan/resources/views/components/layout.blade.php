@@ -34,7 +34,6 @@
                     <a href="/posts" class="px-3 py-2 rounded-sm hover:bg-purple-700/60">Posts</a>
                     <a href="/categories" class="px-3 py-2 rounded-sm hover:bg-purple-700/60">Categories</a>
                     <a href="/about" class="px-3 py-2 rounded-sm hover:bg-purple-700/60">About</a>
-                    <a href="/admin" class="px-3 py-2 rounded-sm hover:bg-purple-700/60">Admin</a>
 
                     @auth
                         <div class="flex items-center gap-3 ml-4">
@@ -45,7 +44,7 @@
                             </div>
                             <form action="{{ route('logout') }}" method="POST" class="ml-3">
                                 @csrf
-                                <button type="submit" class="px-3 py-1 text-sm rounded bg-white text-purple-600">Logout</button>
+                                <button type="submit" class="px-3 py-1 text-sm rounded bg-white text-purple-600 hover:bg-gray-100 transition-colors">Logout</button>
                             </form>
                         </div>
                     @endauth
